@@ -1,0 +1,211 @@
+[data-theme='realdark'] {
+
+    // layout
+    @layout-prefix-cls: ~'@{ant-prefix}-layout';
+
+    .@{layout-prefix-cls} {
+        display: flex;
+        flex: auto;
+
+        /* fix firefox can't set height smaller than content on flex item */
+        min-height: 0;
+        background: @layout-body-background;
+
+        &,
+        * {
+            box-sizing: border-box;
+        }
+
+        &&-has-sider {
+            flex-direction: row;
+
+            >.@{layout-prefix-cls},
+            >.@{layout-prefix-cls}-content {
+                overflow-x: hidden;
+            }
+        }
+
+        &-header,
+        &-footer {
+            flex: 0 0 auto;
+        }
+
+        &-header {
+            height: @layout-header-height;
+            padding: @layout-header-padding;
+            line-height: @layout-header-height;
+            background: @layout-header-background;
+        }
+
+        &-footer {
+            padding: @layout-footer-padding;
+            color: @text-color;
+            font-size: @font-size-base;
+            background: @layout-footer-background;
+        }
+
+        &-content {
+            flex: auto;
+            /* fix firefox can't set height smaller than content on flex item */
+            min-height: 0;
+        }
+
+        &-sider {
+            position: relative;
+
+            /* fix firefox can't set width smaller than content on flex item */
+            min-width: 0;
+            background: @layout-sider-background;
+            transition: all 0.2s;
+
+            &-children {
+                height: 100%;
+                margin-top: -0.1px;
+                // Hack for fixing margin collaspe bug
+                // https://github.com/ant-design/ant-design/issues/7967
+                // solution from https://stackoverflow.com/a/33132624/3040605
+                padding-top: 0.1px;
+            }
+
+            &-has-trigger {
+                padding-bottom: @layout-trigger-height;
+            }
+
+            &-right {
+                order: 1;
+            }
+
+            &-trigger {
+                position: fixed;
+                bottom: 0;
+                z-index: 1;
+                height: @layout-trigger-height;
+                color: @layout-trigger-color;
+                line-height: @layout-trigger-height;
+                text-align: center;
+                background: @layout-trigger-background;
+                cursor: pointer;
+                transition: all 0.2s;
+            }
+
+            &-zero-width {
+                &>* {
+                    overflow: hidden;
+                }
+
+                &-trigger {
+                    position: absolute;
+                    top: @layout-header-height;
+                    right: -@layout-zero-trigger-width;
+                    z-index: 1;
+                    width: @layout-zero-trigger-width;
+                    height: @layout-zero-trigger-height;
+                    color: @layout-trigger-color;
+                    font-size: @layout-zero-trigger-width / 2;
+                    line-height: @layout-zero-trigger-height;
+                    text-align: center;
+                    background: @layout-sider-background;
+                    border-radius: 0 @border-radius-base @border-radius-base 0;
+                    cursor: pointer;
+                    transition: background 0.3s ease;
+
+                    &:hover {
+                        background: tint(@layout-sider-background, 10%);
+                    }
+
+                    &-right {
+                        left: -@layout-zero-trigger-width;
+                        border-radius: @border-radius-base 0 0 @border-radius-base;
+                    }
+                }
+            }
+        }
+    }
+
+    @import '~ant-design-vue/lib/style/index.less';
+    @import '~ant-design-vue/lib/affix/style/index.less';
+    @import '~ant-design-vue/lib/alert/style/index.less';
+    @import '~ant-design-vue/lib/anchor/style/index.less';
+    @import '~ant-design-vue/lib/auto-complete/style/index.less';
+    @import '~ant-design-vue/lib/avatar/style/index.less';
+    @import '~ant-design-vue/lib/back-top/style/index.less';
+    @import '~ant-design-vue/lib/badge/style/index.less';
+    @import '~ant-design-vue/lib/breadcrumb/style/index.less';
+    @import '~ant-design-vue/lib/button/style/index.less';
+    @import '~ant-design-vue/lib/calendar/style/index.less';
+    @import '~ant-design-vue/lib/card/style/index.less';
+    @import '~ant-design-vue/lib/carousel/style/index.less';
+    @import '~ant-design-vue/lib/cascader/style/index.less';
+    @import '~ant-design-vue/lib/checkbox/style/index.less';
+    @import '~ant-design-vue/lib/collapse/style/index.less';
+    @import '~ant-design-vue/lib/comment/style/index.less';
+    @import '~ant-design-vue/lib/config-provider/style/index.less';
+    @import '~ant-design-vue/lib/date-picker/style/index.less';
+    @import '~ant-design-vue/lib/descriptions/style/index.less';
+    @import '~ant-design-vue/lib/divider/style/index.less';
+    @import '~ant-design-vue/lib/drawer/style/index.less';
+    @import '~ant-design-vue/lib/dropdown/style/index.less';
+    @import '~ant-design-vue/lib/empty/style/index.less';
+    @import '~ant-design-vue/lib/form/style/index.less';
+    @import '~ant-design-vue/lib/form-model/style/index.less';
+    @import '~ant-design-vue/lib/grid/style/index.less';
+    @import '~ant-design-vue/lib/icon/style/index.less';
+    @import '~ant-design-vue/lib/input/style/index.less';
+    @import '~ant-design-vue/lib/input-number/style/index.less';
+
+    @import '~ant-design-vue/lib/list/style/index.less';
+    @import '~ant-design-vue/lib/locale-provider/style/index.less';
+    @import '~ant-design-vue/lib/mentions/style/index.less';
+    @import '~ant-design-vue/lib/menu/style/index.less';
+    @import '~ant-design-vue/lib/message/style/index.less';
+    @import '~ant-design-vue/lib/modal/style/index.less';
+    @import '~ant-design-vue/lib/notification/style/index.less';
+    @import '~ant-design-vue/lib/page-header/style/index.less';
+    @import '~ant-design-vue/lib/pagination/style/index.less';
+    @import '~ant-design-vue/lib/popover/style/index.less';
+    @import '~ant-design-vue/lib/progress/style/index.less';
+    @import '~ant-design-vue/lib/radio/style/index.less';
+    @import '~ant-design-vue/lib/rate/style/index.less';
+    @import '~ant-design-vue/lib/result/style/index.less';
+    @import '~ant-design-vue/lib/select/style/index.less';
+    @import '~ant-design-vue/lib/skeleton/style/index.less';
+    @import '~ant-design-vue/lib/slider/style/index.less';
+    @import '~ant-design-vue/lib/space/style/index.less';
+    @import '~ant-design-vue/lib/spin/style/index.less';
+    @import '~ant-design-vue/lib/statistic/style/index.less';
+    @import '~ant-design-vue/lib/steps/style/index.less';
+    @import '~ant-design-vue/lib/switch/style/index.less';
+    @import '~ant-design-vue/lib/table/style/index.less';
+    @import '~ant-design-vue/lib/tabs/style/index.less';
+    @import '~ant-design-vue/lib/tag/style/index.less';
+    @import '~ant-design-vue/lib/time-picker/style/index.less';
+    @import '~ant-design-vue/lib/timeline/style/index.less';
+    @import '~ant-design-vue/lib/tooltip/style/index.less';
+    @import '~ant-design-vue/lib/transfer/style/index.less';
+    @import '~ant-design-vue/lib/tree/style/index.less';
+    @import '~ant-design-vue/lib/tree-select/style/index.less';
+    @import '~ant-design-vue/lib/upload/style/index.less';
+
+    // ant-pro-footer-toolbar
+    .ant-pro-footer-toolbar {
+        background-color: @body-background;
+    }
+
+    .ant-pro-page-header-wrap-page-header-warp,
+    .ant-pro-global-header {
+        background-color: @body-background;
+    }
+
+    .ant-tabs.ant-tabs-card .ant-tabs-card-bar .ant-tabs-tab {
+        background-color: @body-background;
+        border: 1px solid @border-color-base;
+    }
+
+    svg {
+        color: @text-color
+    }
+
+
+
+    @import './dark.less';
+}

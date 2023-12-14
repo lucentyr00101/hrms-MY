@@ -1,0 +1,156 @@
+@import '~ant-design-vue/es/style/themes/default.less';
+
+html,
+body,
+#app,
+#root {
+  height: 100%;
+}
+
+.colorWeak {
+  filter: invert(80%);
+}
+
+.ant-modal-content {
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.ant-modal-header {
+  border-bottom: 0;
+  border-radius: 10px;
+
+  .ant-modal-title {
+    font-weight: 700;
+  }
+}
+
+.ant-modal-footer {
+  border-top: 0;
+}
+
+.ant-layout.layout-basic {
+  height: 100vh;
+  min-height: 100vh;
+}
+
+canvas {
+  display: block;
+}
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizelegibility;
+}
+
+.sidemenu {
+  min-height: 125vh !important;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+// 数据列表 样式
+.table-alert {
+  margin-bottom: 16px;
+}
+
+// 数据列表 操作
+.table-operator {
+  margin-bottom: 18px;
+
+  button {
+    margin-right: 8px;
+  }
+}
+
+// 数据列表 搜索条件
+.table-page-search-wrapper {
+  .ant-form-inline {
+    .ant-form-item {
+      display: flex;
+      margin-right: 0;
+      margin-bottom: 24px;
+
+      .ant-form-item-control-wrapper {
+        flex: 1 1;
+        display: inline-block;
+        vertical-align: middle;
+      }
+
+      >.ant-form-item-label {
+        width: auto;
+        padding-right: 8px;
+        line-height: 32px;
+      }
+
+      .ant-form-item-control {
+        height: 32px;
+        line-height: 32px;
+      }
+    }
+  }
+
+  .table-page-search-submitButtons {
+    display: block;
+    margin-bottom: 24px;
+    white-space: nowrap;
+  }
+}
+
+.ant-page-header-heading-title,
+.ant-page-header-heading {
+  display: none;
+}
+
+.antd-custom-table {
+  padding: 20px 10px !important;
+  margin-top: 24px !important;
+  background: #fff;
+  border-radius: 10px !important;
+
+
+  .antd-custom-table-toolbar {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: center;
+    justify-content: flex-end;
+
+    .ant-btn:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+}
+
+[data-theme='realdark'] {
+  .ant-table-tbody>tr.ant-table-row-selected td {
+    background: #1f1f1f
+  }
+
+  .ant-pro-sider-menu-sider.fix-sider-bar {
+    position: fixed !important;
+  }
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+
+    &-thead>tr,
+    &-tbody>tr {
+
+      >th,
+      >td {
+        white-space: pre;
+
+        >span {
+          display: block;
+        }
+      }
+    }
+  }
+}

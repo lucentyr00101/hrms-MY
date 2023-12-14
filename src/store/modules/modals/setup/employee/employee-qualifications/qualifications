@@ -1,0 +1,13 @@
+export const state = {
+    addEmployeeQualificationModal: false
+}
+
+export const getters = {
+    addEmployeeQualificationModal: state => state.addEmployeeQualificationModal
+}
+
+export const mutations = {
+  TOGGLE_ADD_EMPLOYEE_QUALIFICATION_MODAL (state) {
+    state.addEmployeeQualificationModal = !state.addEmployeeQualificationModal
+  }
+}
